@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.js"],"names":["App","use","router","mount"],"mappings":";;AAAA;;AACA;;AACA;;;;AAEA,oBAAUA,eAAV,EACCC,GADD,CACKC,kBADL,EAECC,KAFD,CAEO,MAFP","sourcesContent":["import { createApp } from 'vue'\nimport App from './App.vue'\nimport router from './router';\n\ncreateApp(App)\n.use(router)\n.mount('#app')\n"],"file":"main.dev.js"}
