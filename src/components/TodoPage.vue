@@ -2,7 +2,10 @@
     <div class="todo-container">
       <h1>Your ToDos</h1>
       <ul>
-        <li v-for="todo in todos" :key="todo.id">{{ todo.content }}</li>
+        <li v-for="todo in todos" :key="todo.id">
+          {{ todo.content }}
+          <button @click="deleteTodo(todo.id)">Delete</button>
+        </li>
       </ul>
       <form @submit.prevent="addTodo">
         <input type="text" v-model="newTodoContent" placeholder="Add a new todo" required />
@@ -30,7 +33,7 @@
     methods: {
       async fetchTodos() {
         try {
-          const token = localStorage.getItem('token'); // Implement this method based on your JWT structure
+          const token = localStorage.getItem('token');
           const response = await axios.get(`${BASE_URL}/todos`, {
             headers: {
               Authorization: `Bearer ${token}`
@@ -55,6 +58,19 @@
           await this.fetchTodos(); // Refresh the list after adding a new todo
         } catch (error) {
           this.errorMessage = 'An error occurred while adding the todo.';
+        }
+      },
+      async deleteTodo(todoId) {
+        try {
+          const token = localStorage.getItem('token');
+          await axios.delete(`${BASE_URL}/todos/delete/${todoId}`, {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          });
+          await this.fetchTodos(); // Refresh the list after deleting a todo
+        } catch (error) {
+          this.errorMessage = 'An error occurred while deleting the todo.';
         }
       }
     }
