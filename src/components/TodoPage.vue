@@ -1,17 +1,19 @@
 <template>
-    <div class="todo-container">
-      <h1>Your ToDos</h1>
-      <ul>
-        <li v-for="todo in todos" :key="todo.id">
-          {{ todo.content }}
-          <button @click="deleteTodo(todo.id)">Delete</button>
-        </li>
-      </ul>
-      <form @submit.prevent="addTodo">
-        <input type="text" v-model="newTodoContent" placeholder="Add a new todo" required />
-        <button type="submit">Add</button>
-      </form>
-      <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+    <div class="page-container">
+      <div class="todo-container">
+        <h1>What you have to do: </h1>
+        <ul>
+          <li v-for="todo in todos" :key="todo.id">
+            {{ todo.content }}
+            <button @click="deleteTodo(todo.id)" class="delete-button">Delete</button>
+          </li>
+        </ul>
+        <form @submit.prevent="addTodo">
+          <input type="text" v-model="newTodoContent" placeholder="Add a new todo" required class="todo-input" />
+          <button type="submit" class="add-button">Add</button>
+        </form>
+        <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+      </div>
     </div>
   </template>
   
@@ -41,7 +43,8 @@
           });
           this.todos = response.data;
         } catch (error) {
-          this.errorMessage = 'An error occurred while fetching todos.';
+          this.$router.push('/login');
+          this.errorMessage = 'You have to be logged in.';
         }
       },
       async addTodo() {
@@ -57,7 +60,8 @@
           this.newTodoContent = '';
           await this.fetchTodos(); // Refresh the list after adding a new todo
         } catch (error) {
-          this.errorMessage = 'An error occurred while adding the todo.';
+          this.errorMessage = 'You have to be logged in.';
+          this.$router.push('/login');
         }
       },
       async deleteTodo(todoId) {
@@ -70,7 +74,8 @@
           });
           await this.fetchTodos(); // Refresh the list after deleting a todo
         } catch (error) {
-          this.errorMessage = 'An error occurred while deleting the todo.';
+          this.errorMessage = 'You have to be logged in.';
+          this.$router.push('/login');
         }
       }
     }
@@ -78,12 +83,58 @@
   </script>
   
   <style scoped>
+  .page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
   .todo-container {
     max-width: 600px;
-    margin: auto;
-    padding: 1rem;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .todo-container h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .todo-input {
+    width: calc(100% - 80px);
+    padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 5px;
+  }
+  
+  .add-button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .delete-button {
+    padding: 0.5rem 1rem;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333;
   }
   
   .error {
