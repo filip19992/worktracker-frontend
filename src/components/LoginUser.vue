@@ -30,13 +30,13 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await axios.post('https://work-tracker-app.azurewebsites.net/auth/login', {
+        const response = await axios.post(`${BASE_URL}/auth/login`, {
           username: this.username,
           password: this.password
         });
         if (response.data.authenticated) {
           localStorage.setItem('token', response.data.token);
-          this.$router.push('/dashboard'); // Redirect to dashboard or other protected route
+          this.$router.push('/todos'); // Redirect to dashboard or other protected route
         } else {
           this.errorMessage = 'Login failed. Please check your username and password.';
         }
