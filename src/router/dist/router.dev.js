@@ -7,13 +7,13 @@ exports["default"] = void 0;
 
 var _vueRouter = require("vue-router");
 
-var _UserLogin = _interopRequireDefault(require("./components/UserLogin.vue"));
+var _LoginUser = _interopRequireDefault(require("./components/LoginUser.vue"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var routes = [{
   path: '/login',
-  component: _UserLogin["default"]
+  component: _LoginUser["default"]
 }];
 var router = (0, _vueRouter.createRouter)({
   history: (0, _vueRouter.createWebHistory)(process.env.BASE_URL),
