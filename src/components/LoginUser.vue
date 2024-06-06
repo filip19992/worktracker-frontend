@@ -30,7 +30,7 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await axios.post('${BASE_URL}/auth/login', {
+        const response = await axios.post('https://work-tracker-app.azurewebsites.net/auth/login', {
           username: this.username,
           password: this.password
         });
