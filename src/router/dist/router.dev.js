@@ -9,11 +9,16 @@ var _vueRouter = require("vue-router");
 
 var _LoginUser = _interopRequireDefault(require("../components/LoginUser.vue"));
 
+var _TodoPage = _interopRequireDefault(require("../components/TodoPage.vue"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var routes = [{
   path: '/login',
   component: _LoginUser["default"]
+}, {
+  path: '/todos',
+  component: _TodoPage["default"]
 }];
 var router = (0, _vueRouter.createRouter)({
   history: (0, _vueRouter.createWebHistory)(process.env.BASE_URL),
