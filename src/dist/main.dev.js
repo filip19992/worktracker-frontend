@@ -4,7 +4,7 @@ var _vue = require("vue");
 
 var _App = _interopRequireDefault(require("./App.vue"));
 
-var _router = _interopRequireDefault(require("./router"));
+var _router = _interopRequireDefault(require("./router/router"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
