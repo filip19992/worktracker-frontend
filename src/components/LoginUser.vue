@@ -14,6 +14,7 @@
         <button type="submit" class="login-button">Login</button>
       </form>
       <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+      <button class="register-button" @click="redirectToRegistration">Go to registration</button>
     </div>
   </div>
 </template>
@@ -95,6 +96,15 @@ export default {
   cursor: pointer;
 }
 
+.register-button {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 .login-button:hover {
   background-color: #0056b3;
 }
