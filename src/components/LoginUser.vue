@@ -12,8 +12,8 @@
           <input type="password" id="password" v-model="password" required class="login-input" />
         </div>
         <button type="submit" class="login-button">Login</button>
-        <button class="login-button">Register account</button>
       </form>
+      <button class="login-button">Register account</button>
       <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
     </div>
   </div>
