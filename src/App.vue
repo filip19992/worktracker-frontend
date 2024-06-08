@@ -35,4 +35,8 @@ export default {
   max-width: 800px;
   margin: 0 auto;
 }
+
+#app > * + * {
+  margin-top: 20px;
+}
 </style>
