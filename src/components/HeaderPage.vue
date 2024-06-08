@@ -3,6 +3,7 @@
       <nav>
         <ul>
           <li>
+            <a v-if="isLoggedIn" @click.prevent="goToProfile">Profile</a>
             <a v-if="isLoggedIn" @click.prevent="logout">Logout</a>
             <a v-if="!isLoggedIn" @click.prevent="goToRegister">Register</a>
             <a v-if="!isLoggedIn" @click.prevent="goToLogin">Login</a>
@@ -27,6 +28,10 @@ export default {
     },
     goToRegister(){
         this.$router.push('/register');
+    }
+    ,
+    goToProfile(){
+        this.$router.push('/profile');
     }
     ,
     goToLogin(){
