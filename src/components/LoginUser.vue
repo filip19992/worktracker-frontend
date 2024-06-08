@@ -22,6 +22,7 @@
 <script>
 import axios from 'axios';
 import { BASE_URL } from '../config';
+import {eventBus} from '../event-bus'
 
 export default {
   data() {
@@ -40,6 +41,7 @@ export default {
         });
         if (response.data.authenticated) {
           localStorage.setItem('token', response.data.token);
+          eventBus.$emit('userLoggedIn');
           this.$router.push('/todos'); // Redirect to dashboard or other protected route
         } else {
           this.errorMessage = 'Login failed. Please check your username and password.';

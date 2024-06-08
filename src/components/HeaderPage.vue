@@ -13,12 +13,13 @@
   </template>
   
   <script>
+  import { eventBus } from './eventBus';
 export default {
   name: 'HeaderComponent',
-  data() {
-    return {
-      shouldRefresh: 0 // Initialize shouldRefresh
-    };
+  created() {
+    eventBus.$on('userLoggedIn', this.refreshHeader);
+    eventBus.$on('userRegistered', this.refreshHeader);
+    eventBus.$on('userLoggedOut', this.refreshHeader);
   },
   computed: {
     isLoggedIn() {
@@ -28,6 +29,7 @@ export default {
   methods: {
     logout() {
       localStorage.removeItem('token');
+      eventBus.$emit('userLoggedOut');
       this.$router.push('/login');
     },
     goToRegister(){
@@ -36,7 +38,10 @@ export default {
     ,
     goToLogin(){
         this.$router.push('/login');
-     }
+     },
+     refreshHeader() {
+      console.log('User state has changed')
+    }
     }
 };
 </script>
