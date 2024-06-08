@@ -47,7 +47,7 @@ export default {
       } catch (error) {
         this.errorMessage = 'An error occurred while trying to login.';
       }
-      this.$forceUpdate();
+      location.reload;
     },
 
     async redirectToRegistration() {

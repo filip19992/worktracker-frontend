@@ -4,6 +4,11 @@
     <HeaderPage />
     <router-view></router-view>
   </div>
+  <footer>
+    © 2024 WorkTracker. All rights reserved.
+    Designed and developed by [Your Company Name].
+    Contact Us: contact@worktracker.com | (123) 456-7890
+  </footer>
 </template>
 
 <script>

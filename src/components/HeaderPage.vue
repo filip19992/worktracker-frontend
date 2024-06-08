@@ -29,7 +29,7 @@ export default {
     logout() {
       localStorage.removeItem('token');
       this.$router.push('/login');
-      this.$forceUpdate();
+      location.reload;
     },
     goToRegister(){
         this.$router.push('/register');
