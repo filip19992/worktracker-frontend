@@ -46,7 +46,6 @@
         } catch (error) {
           this.errorMessage = 'An error occurred while trying to register.';
         }
-        location.reload;
       }
     }
   };

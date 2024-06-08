@@ -29,7 +29,6 @@ export default {
     logout() {
       localStorage.removeItem('token');
       this.$router.push('/login');
-      location.reload;
     },
     goToRegister(){
         this.$router.push('/register');
