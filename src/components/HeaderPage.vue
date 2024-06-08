@@ -3,7 +3,7 @@
       <nav>
         <ul>
           <li>
-            <a v-if="isLoggedIn" @click.prevent="logout">Login</a>
+            <a v-if="isLoggedIn" @click.prevent="logout">Logout</a>
             <a v-if="!isLoggedIn" @click.prevent="goToRegister">Register</a>
             <a v-if="!isLoggedIn" @click.prevent="goToLogin">Logout</a>
           </li>
