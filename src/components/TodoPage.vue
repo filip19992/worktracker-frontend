@@ -1,21 +1,24 @@
 <template>
-    <div class="page-container">
-      <div class="todo-container">
-        <h1>What you have to do: </h1>
-        <ul>
-          <li v-for="todo in todos" :key="todo.id">
-            {{ todo.content }}
+  <div class="page-container">
+    <div class="todo-container">
+      <h1>What you have to do: </h1>
+      <ul>
+        <li v-for="todo in todos" :key="todo.id">
+          <div class="todo-content">
+            <span>{{ todo.content }}</span>
             <button @click="deleteTodo(todo.id)" class="delete-button">Delete</button>
-          </li>
-        </ul>
-        <form @submit.prevent="addTodo">
-          <input type="text" v-model="newTodoContent" placeholder="Add a new todo" required class="todo-input" />
-          <button type="submit" class="add-button">Add</button>
-        </form>
-        <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
-      </div>
+          </div>
+        </li>
+      </ul>
+      <form @submit.prevent="addTodo">
+        <input type="text" v-model="newTodoContent" placeholder="Add a new todo" required class="todo-input" />
+        <button type="submit" class="add-button">Add</button>
+      </form>
+      <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
     </div>
-  </template>
+  </div>
+</template>
+
   
   <script>
   import axios from 'axios';
@@ -140,5 +143,15 @@
   .error {
     color: red;
   }
+
+  .todo-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-content span {
+  flex-grow: 1;
+}
   </style>
   
