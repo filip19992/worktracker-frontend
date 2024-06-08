@@ -155,6 +155,20 @@
     font-weight: bold;
   }
   
+  .profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
   .upload-button {
     padding: 0.5rem 1rem;
     background-color: #007bff;
