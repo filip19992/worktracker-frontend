@@ -21,10 +21,8 @@
   <script>
   import axios from 'axios';
   import { BASE_URL } from '../config';
-  import {eventBus} from '../event-bus.js'
   
   export default {
-    emits: ['userRegistered'],
     data() {
       return {
         username: '',
@@ -41,7 +39,6 @@
           });
           if (response.data.authenticated) {
             localStorage.setItem('token', response.data.token);
-            eventBus.$emit('userRegistered');
             this.$router.push('/login'); 
           } else {
             this.errorMessage = 'Registration failed.';

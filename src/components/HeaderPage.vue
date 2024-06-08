@@ -13,15 +13,8 @@
   </template>
   
   <script>
-import { eventBus } from '../event-bus.js';
 export default {
-emits: ['userLoggedOut'],
   name: 'HeaderComponent',
-  created() {
-    eventBus.$on('userLoggedIn', this.refreshHeader);
-    eventBus.$on('userRegistered', this.refreshHeader);
-    eventBus.$on('userLoggedOut', this.refreshHeader);
-  },
   computed: {
     isLoggedIn() {
       return !!localStorage.getItem('token');
@@ -30,7 +23,6 @@ emits: ['userLoggedOut'],
   methods: {
     logout() {
       localStorage.removeItem('token');
-      eventBus.$emit('userLoggedOut');
       this.$router.push('/login');
     },
     goToRegister(){
@@ -39,10 +31,7 @@ emits: ['userLoggedOut'],
     ,
     goToLogin(){
         this.$router.push('/login');
-     },
-     refreshHeader() {
-      console.log('User state has changed')
-    }
+     }
     }
 };
 </script>
