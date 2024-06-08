@@ -1,5 +1,5 @@
 <template>
-    <header class="header">
+    <header class="header" :key="isLoggedIn">
       <nav>
         <ul>
           <li>
