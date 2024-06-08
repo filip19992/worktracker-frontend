@@ -2,6 +2,21 @@
     <div class="page-container">
       <div class="profile-container">
         <h1>Your Profile</h1>
+        <div class="profile-info">
+          <div>
+            <label>Username:</label>
+            <span>{{ userData.username }}</span>
+          </div>
+          <div>
+            <label>Password:</label>
+            <span v-if="showPassword">{{ userData.password }}</span>
+            <button @click="togglePasswordVisibility">{{ showPassword ? 'Hide' : 'Show' }}</button>
+          </div>
+          <div>
+            <label>Role:</label>
+            <span>{{ userData.role }}</span>
+          </div>
+        </div>
         <div class="profile-photo">
           <img :src="profilePhotoUrl" alt="Profile Photo" v-if="profilePhotoUrl" />
           <p v-else>No profile photo uploaded.</p>
@@ -24,13 +39,31 @@
       return {
         profilePhotoUrl: '',
         selectedFile: null,
-        errorMessage: ''
+        errorMessage: '',
+        userData: {},
+        showPassword: false,
       };
     },
     async created() {
+      await this.fetchProfileData();
       await this.fetchProfilePhoto();
     },
     methods: {
+      async fetchProfileData() {
+        try {
+          const token = localStorage.getItem('token');
+          const response = await axios.get(`${BASE_URL}/users/current`, {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          });
+  
+          this.userData = response.data;
+        } catch (error) {
+          this.errorMessage = 'You have to be logged in.';
+          this.$router.push('/login');
+        }
+      },
       async fetchProfilePhoto() {
         try {
           const token = localStorage.getItem('token');
@@ -80,6 +113,9 @@
           this.errorMessage = 'You have to be logged in.';
           this.$router.push('/login');
         }
+      },
+      togglePasswordVisibility() {
+        this.showPassword = !this.showPassword;
       }
     }
   };
@@ -107,12 +143,16 @@
     margin-bottom: 1rem;
   }
   
-  .profile-photo img {
-    width: 100%;
-    height: auto;
-    max-width: 200px;
-    border-radius: 50%;
+  .profile-info {
     margin-bottom: 1rem;
+  }
+  
+  .profile-info div {
+    margin-bottom: 0.5rem;
+  }
+  
+  .profile-info label {
+    font-weight: bold;
   }
   
   .upload-button {
