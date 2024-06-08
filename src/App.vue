@@ -1,7 +1,7 @@
 <!-- src/App.vue -->
 <template>
   <div id="app">
-    <HeaderComponent />
+    <HeaderPage />
     <router-view></router-view>
   </div>
 </template>
