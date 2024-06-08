@@ -8,6 +8,7 @@
                         <router-link v-if="isLoggedIn" @click.prevent="logout">Logout</router-link>
                     </li>
                 </ul>   
+                <div>Is Logged In: {{ isLoggedIn }}</div>
         </nav>
         </header>
     </template>
