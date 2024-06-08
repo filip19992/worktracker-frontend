@@ -1,17 +1,17 @@
 <template>
     <div class="page-container">
-      <div class="login-container">
+      <div class="register-container">
         <h1>Register you account</h1>
         <form @submit.prevent="register">
           <div>
             <label for="username">Username:</label>
-            <input type="text" id="username" v-model="username" required class="login-input" />
+            <input type="text" id="username" v-model="username" required class="register-input" />
           </div>
           <div>
             <label for="password">Password:</label>
-            <input type="password" id="password" v-model="password" required class="login-input" />
+            <input type="password" id="password" v-model="password" required class="register-input" />
           </div>
-          <button type="submit" class="login-button">Register</button>
+          <button type="submit" class="register-button">Register</button>
         </form>
         <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
       </div>
@@ -39,7 +39,7 @@
           });
           if (response.data.authenticated) {
             localStorage.setItem('token', response.data.token);
-            this.$router.push('/login'); // Redirect to dashboard or other protected route
+            this.$router.push('/login'); 
           } else {
             this.errorMessage = 'Registration failed.';
           }
@@ -59,7 +59,7 @@
     height: 100vh;
   }
   
-  .login-container {
+  .register-container {
     max-width: 400px;
     padding: 2rem;
     border: 1px solid #ccc;
@@ -68,12 +68,12 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  .login-container h1 {
+  .register-container h1 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
   
-  .login-input {
+  .register-input {
     width: 100%;
     margin-bottom: 1rem;
     padding: 0.5rem;
@@ -81,7 +81,7 @@
     border-radius: 5px;
   }
   
-  .login-button {
+  .register-button {
     width: 100%;
     padding: 0.5rem;
     background-color: #007bff;
@@ -91,7 +91,7 @@
     cursor: pointer;
   }
   
-  .login-button:hover {
+  .register-button:hover {
     background-color: #0056b3;
   }
   
