@@ -27,17 +27,17 @@ export default {
   },
   methods: {
     logout() {
-      vm.$forceUpdate();
+      this.vm.$forceUpdate();
       localStorage.removeItem('token');
       this.$router.push('/login');
     },
     goToRegister(){
-        vm.$forceUpdate();
+        this.vm.$forceUpdate();
         this.$router.push('/register'); 
     }
     ,
     goToLogin(){
-        vm.$forceUpdate();
+        this.vm.$forceUpdate();
         this.$router.push('/login'); 
      }
     }
