@@ -1,11 +1,11 @@
 <template>
-    <header class="header" :key="isLoggedIn">
+    <header class="header" :key="shouldRefresh">
       <nav>
         <ul>
           <li>
-            <router-link v-if="!isLoggedIn" to="/login">Login</router-link>
-            <router-link v-if="!isLoggedIn" to="/register">Register</router-link>
-            <a v-if="isLoggedIn" @click.prevent="logout">Logout</a>
+            <a v-if="isLoggedIn" @click.prevent="logout">Login</a>
+            <a v-if="!isLoggedIn" @click.prevent="goToRegister">Register</a>
+            <a v-if="!isLoggedIn" @click.prevent="goToLogin">Logout</a>
           </li>
         </ul>
       </nav>
@@ -13,28 +13,36 @@
   </template>
   
   <script>
-  export default {
-    name: 'HeaderComponent',
-    computed: {
-      isLoggedIn() {
-        return !!localStorage.getItem('token');
-      }
+export default {
+  name: 'HeaderComponent',
+  data() {
+    return {
+      shouldRefresh: 0 // Initialize shouldRefresh
+    };
+  },
+  computed: {
+    isLoggedIn() {
+      return !!localStorage.getItem('token');
+    }
+  },
+  methods: {
+    logout() {
+      this.shouldRefresh++;
+      localStorage.removeItem('token');
+      this.$router.push('/login');
     },
-    methods: {
-      logout() {
-        localStorage.removeItem('token');
-        this.$router.push('/login');
-      }
-    },
-    watch: {
-        isLoggedIn: {
-            handler() {
-            this.$forceUpdate();
-            },
-            immediate: true 
-        }
-    }};
-  </script>
+    goToRegister(){
+        this.shouldRefresh++;
+        this.$router.push('/register'); 
+    }
+    ,
+    goToLogin(){
+        this.shouldRefresh++;
+        this.$router.push('/login'); 
+     }
+    }
+};
+</script>
   
   <style scoped>
   /* Your existing styles */
