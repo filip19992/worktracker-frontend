@@ -27,14 +27,13 @@
       }
     },
     watch: {
-      isLoggedIn: {
-        handler(newValue) {
-          this.$forceUpdate();
-        },
-        immediate: true 
-      }
-    }
-  };
+        isLoggedIn: {
+            handler() {
+            this.$forceUpdate();
+            },
+            immediate: true 
+        }
+    }};
   </script>
   
   <style scoped>
