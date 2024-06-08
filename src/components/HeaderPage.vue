@@ -1,5 +1,5 @@
 <template>
-    <header class="header" :key="isLoggedIn">
+    <header class="header">
       <nav>
         <ul>
           <li>
@@ -25,9 +25,22 @@
         localStorage.removeItem('token');
         this.$router.push('/login');
       }
+    },
+    watch: {
+      isLoggedIn: {
+        handler(newValue) {
+          this.$forceUpdate();
+        },
+        immediate: true 
+      }
     }
   };
   </script>
+  
+  <style scoped>
+  /* Your existing styles */
+  </style>
+  
   
   <style scoped>
   .header {
