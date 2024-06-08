@@ -5,7 +5,7 @@
                     <li>
                         <router-link v-if="!isLoggedIn" to="/login">Login</router-link>
                         <router-link v-if="!isLoggedIn" to="/register">Register</router-link>
-                        <router-link v-if="isLoggedIn" @click.prevent="logout">Logout</router-link>
+                        <a v-if="isLoggedIn" @click.prevent="logout">Logout</a>
                     </li>
                 </ul>   
                 <div>Is Logged In: {{ isLoggedIn }}</div>
