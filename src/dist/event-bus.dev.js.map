@@ -1,1 +1,1 @@
-{"version":3,"sources":["event-bus.js"],"names":["eventBus","Vue"],"mappings":";;;;;;;AAAA;;;;AACO,IAAMA,QAAQ,GAAG,IAAIC,eAAJ,EAAjB","sourcesContent":["import Vue from 'vue/dist/vue.esm';\r\nexport const eventBus = new Vue();\r\n"],"file":"event-bus.dev.js"}
+{"version":3,"sources":["event-bus.js"],"names":["app","eventBus"],"mappings":";;;;;;;AAAA;;AACA,IAAMA,GAAG,GAAG,oBAAU,EAAV,CAAZ;AACO,IAAMC,QAAQ,GAAGD,GAAjB","sourcesContent":["import { createApp } from 'vue';\r\nconst app = createApp({});\r\nexport const eventBus = app;\r\n"],"file":"event-bus.dev.js"}

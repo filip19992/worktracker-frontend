@@ -1,2 +1,3 @@
-import Vue from 'vue/dist/vue.esm';
-export const eventBus = new Vue();
+import { createApp } from 'vue';
+const app = createApp({});
+export const eventBus = app;

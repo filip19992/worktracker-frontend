@@ -5,10 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.eventBus = void 0;
 
-var _vue = _interopRequireDefault(require("vue/dist/vue.esm"));
+var _vue = require("vue");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-var eventBus = new _vue["default"]();
+var app = (0, _vue.createApp)({});
+var eventBus = app;
 exports.eventBus = eventBus;
 //# sourceMappingURL=event-bus.dev.js.map
