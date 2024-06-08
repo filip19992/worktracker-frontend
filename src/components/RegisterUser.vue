@@ -24,6 +24,7 @@
   import {eventBus} from '../event-bus.js'
   
   export default {
+    emits: ['userRegistered'],
     data() {
       return {
         username: '',

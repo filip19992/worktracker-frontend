@@ -25,6 +25,7 @@ import { BASE_URL } from '../config';
 import {eventBus} from '../event-bus.js'
 
 export default {
+  emits: ['userLoggedIn'],
   data() {
     return {
       username: '',

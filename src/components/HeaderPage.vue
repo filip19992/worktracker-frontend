@@ -15,6 +15,7 @@
   <script>
 import { eventBus } from '../event-bus.js';
 export default {
+emits: ['userLoggedOut'],
   name: 'HeaderComponent',
   created() {
     eventBus.$on('userLoggedIn', this.refreshHeader);
