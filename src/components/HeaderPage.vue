@@ -51,6 +51,7 @@ export default {
     background-color: #f8f9fa;
     padding: 1rem;
     border-bottom: 1px solid #ccc;
+    margin-bottom: 5%;
   }
   
   .header nav ul {
