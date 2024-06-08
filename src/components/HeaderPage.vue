@@ -29,16 +29,14 @@ export default {
     logout() {
       localStorage.removeItem('token');
       this.$router.push('/login');
-      this.vm.$forceUpdate();
+      this.$forceUpdate();
     },
     goToRegister(){
         this.$router.push('/register');
-        this.vm.$forceUpdate();
     }
     ,
     goToLogin(){
         this.$router.push('/login');
-        this.vm.$forceUpdate();
      }
     }
 };
