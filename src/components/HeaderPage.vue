@@ -13,7 +13,7 @@
   </template>
   
   <script>
-import { eventBus } from '../event-bus';
+import { eventBus } from '../event-bus.js';
 export default {
   name: 'HeaderComponent',
   created() {
