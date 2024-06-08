@@ -156,8 +156,8 @@
   }
   
   .profile-photo {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 1rem;
