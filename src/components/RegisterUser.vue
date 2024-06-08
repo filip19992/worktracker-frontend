@@ -1,24 +1,28 @@
 <template>
-    <div class="page-container">
-      <div class="register-container">
-        <h1>Register you account</h1>
-        <form @submit.prevent="register">
-          <div>
-            <label for="username">Username:</label>
-            <input type="text" id="username" v-model="username" required class="register-input" />
-          </div>
-          <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" v-model="password" required class="register-input" />
-          </div>
-          <button type="submit" class="register-button">Register</button>
-        </form>
-        <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
-      </div>
+  <div class="page-container">
+    <div class="register-container">
+      <h1>Register your account</h1>
+      <form @submit.prevent="register">
+        <div>
+          <label for="username">Username:</label>
+          <input type="text" id="username" v-model="username" required class="register-input" />
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" v-model="password" required class="register-input" />
+        </div>
+        <div>
+          <label for="confirmPassword">Confirm Password:</label>
+          <input type="password" id="confirmPassword" v-model="confirmPassword" required class="register-input" />
+        </div>
+        <button type="submit" class="register-button">Register</button>
+      </form>
+      <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
     </div>
-  </template>
-  
-  <script>
+  </div>
+</template>
+
+<script>
 import axios from 'axios';
 import { BASE_URL } from '../config';
 
