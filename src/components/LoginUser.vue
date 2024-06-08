@@ -104,7 +104,9 @@ export default {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 1rem; /* Add margin here for space */
 }
+
 .login-button:hover {
   background-color: #0056b3;
 }
