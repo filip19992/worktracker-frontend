@@ -19,37 +19,43 @@
   </template>
   
   <script>
-  import axios from 'axios';
-  import { BASE_URL } from '../config';
-  
-  export default {
-    data() {
-      return {
-        username: '',
-        password: '',
-        errorMessage: ''
-      };
-    },
-    methods: {
-      async register() {
-        try {
-          const response = await axios.post(`${BASE_URL}/auth/register`, {
-            username: this.username,
-            password: this.password
-          });
-          if (response.data.authenticated) {
-            localStorage.setItem('token', response.data.token);
-            this.$router.push('/login'); 
-          } else {
-            this.errorMessage = 'Registration failed.';
-          }
-        } catch (error) {
-          this.errorMessage = 'An error occurred while trying to register.';
+import axios from 'axios';
+import { BASE_URL } from '../config';
+
+export default {
+  data() {
+    return {
+      username: '',
+      password: '',
+      confirmPassword: '',
+      errorMessage: ''
+    };
+  },
+  methods: {
+    async register() {
+      try {
+        if (this.password !== this.confirmPassword) {
+          this.errorMessage = 'Passwords do not match.';
+          return;
         }
+        
+        const response = await axios.post(`${BASE_URL}/auth/register`, {
+          username: this.username,
+          password: this.password
+        });
+        if (response.data.authenticated) {
+          localStorage.setItem('token', response.data.token);
+          this.$router.push('/login'); 
+        } else {
+          this.errorMessage = 'Registration failed.';
+        }
+      } catch (error) {
+        this.errorMessage = 'An error occurred while trying to register.';
       }
     }
-  };
-  </script>
+  }
+};
+</script>
   
   <style scoped>
   .page-container {
