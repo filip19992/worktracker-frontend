@@ -8,7 +8,6 @@
             <a v-if="isLoggedIn" @click.prevent="logout">Logout</a>
           </li>
         </ul>
-        <div>Is Logged In: {{ isLoggedIn }}</div>
       </nav>
     </header>
   </template>
