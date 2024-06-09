@@ -79,7 +79,7 @@
           }
         } catch (error) {
           if (error.response && error.response.status === 404) {
-            this.errorMessage = 'No profile photo found.';
+            this.errorMessage = 'Loading.';
           } else {
             this.errorMessage = 'You have to be logged in.';
             this.$router.push('/login');
