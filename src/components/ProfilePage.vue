@@ -19,7 +19,7 @@
         </div>
         <div class="profile-photo">
           <img :src="profilePhotoUrl" alt="Profile Photo" v-if="profilePhotoUrl" />
-          <p v-else>No profile photo uploaded.</p>
+          <p v-else>Loading...</p>
         </div>
         <form @submit.prevent="uploadProfilePhoto">
           <input type="file" @change="onFileChange" required />
