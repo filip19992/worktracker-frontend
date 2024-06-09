@@ -5,8 +5,8 @@
     <footer class="footer">
       <div class="footer-content">
         <p>© 2024 WorkTracker. All rights reserved.</p>
-        <p>Designed and developed by [Your Company Name].</p>
-        <p>Contact Us: contact@worktracker.com | (123) 456-7890</p>
+        <p>Designed and developed by Filip, Mateusz and Sylwia.</p>
+        <p>Contact Us: contact@worktracker.com | 999-999-999</p>
       </div>
     </footer>
   </div>
